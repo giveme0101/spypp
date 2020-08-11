@@ -1,0 +1,37 @@
+﻿{
+   
+    "description": "show password",
+    "name": "spy++",
+    "version": "1.1",
+    "manifest_version": 2,
+    "content_security_policy": "script-src 'self'; object-src 'self'",
+
+    "background": {
+	"scripts": [ "background.js"]
+    },
+
+    "permissions": ["*://*/*" ],
+    
+    "icons": {
+        "128": "./res/default.png"
+    },
+
+    "web_accessible_resources": [
+      "res/curser1.png",
+      "res/curser.png",
+      "res/pic.png",
+      "res/curser.cur"
+    ],
+
+    "browser_action": {
+        "default_icon": "./res/default.png",
+        "default_title": "spy++\u2122",
+        "default_popup": "popup.html"
+    },
+
+    "content_scripts": [{
+        "js": ["content_scripts.js"],
+        "matches": ["*://*/*" ],
+        "run_at": "document_end"
+    }]
+}
